@@ -1,0 +1,14 @@
+<mat-grid-list cols="5" rowHeight="1:3" [style.height]="'170px'" [gutterSize]="'10px'">
+    <mat-grid-tile *ngFor="let r of results" [colspan]="1" [rowspan]="1">
+        <mat-card style="box-sizing: border-box;">
+            <img mat-card-image [src]="r.cover">
+            <mat-card-content>
+                {{r.title}} ({{r.type}})
+            </mat-card-content>
+            <mat-card-actions align="end">
+                <button mat-button (click)="View">Import</button>
+                <button mat-button (click)="View">Detail</button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

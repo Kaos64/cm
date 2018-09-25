@@ -1,0 +1,15 @@
+{{parent()}}-- {{basedir}}
+
+<p *ngIf="parent() != null"><button mat-icon-button (click)="explore(parent())">
+    <mat-icon>folder</mat-icon>Parent</button></p>
+<mat-list dense>
+    <mat-list-item *ngFor="let item of dir">
+        <button *ngIf="item.isDir" mat-icon-button (click)="explore(item)">
+          <mat-icon>folder_open</mat-icon>
+        </button>
+        <button *ngIf="!item.isDir" mat-icon-button (click)="search.next(item)">
+            <mat-icon>search</mat-icon>
+          </button>
+        <h4>{{item.file}}</h4>
+    </mat-list-item>
+</mat-list>

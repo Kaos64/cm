@@ -1,0 +1,29 @@
+<div fxLayout="column wrap">
+    <div fxFlex="100">
+        <cm-query (search)="search($event)" [query]="query"></cm-query>
+    </div>
+
+    <div fxFlex="100">
+
+
+        <div fxLayout="row wrap">
+            <div fxFlex="20">
+                <cm-explore (search)="searchFromExplore($event)"></cm-explore>
+            </div>
+            <div fxFlex="60">
+                <div>
+                    <cm-result [results]="results"></cm-result>
+                </div>
+                <div *ngIf="results.length && pageCount > 0">
+                    <mat-paginator [length]="pageSize * pageCount" [pageSize]="pageSize" [pageSizeOptions]="[pageSize]" (page)="pageChange($event)">
+                    </mat-paginator>
+                </div>
+
+            </div>
+            <div fxFlex="20">
+                <cm-album></cm-album>
+            </div>
+        </div>
+    </div>
+
+</div>
